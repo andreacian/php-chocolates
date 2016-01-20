@@ -7,8 +7,8 @@ $scadenza  = "Scadenza: 14 mesi";
 $dimensioni  = "Dimensioni: 9 x 15,5 x 1,2 cm";
 $pesonetto  = "Peso netto: 50g";
 $prezzo = "Prezzo 5,00 €";
-
 ?>
+
 <!DOCTYPE html>
 
 <html>
@@ -64,7 +64,8 @@ $prezzo = "Prezzo 5,00 €";
           <h2>GUANA - cioccolato fondente</h2>
           <h3>Tavoletta di cioccolato fondente extra al 74%</h3>
           <div>
-          <?php  $ingredienti ?>
+           <?php  echo $ingredienti ?>
+           <?php  echo $ingredienti2 ?>
         <!--   <strong>Ingredienti</strong>: pasta di cacao, zucchero di canna, burro di cacao, vaniglia. Cacao min. 74%. Può contenere tracce di nocciole, mandorle, pistacchi, noci, latte. -->
           </div>
           <div>

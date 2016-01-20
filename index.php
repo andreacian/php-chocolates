@@ -1,16 +1,9 @@
 <?php
-$nome = "GUANA - cioccolato fondente";
-$descrizione = "Tavoletta di cioccolato fondente extra al 74%";
-$ingredienti  = "Ingredienti: pasta di cacao, zucchero di canna, burro di cacao, vaniglia. Cacao min. 74%. Può contenere tracce di nocciole, mandorle, pistacchi, noci, latte.";
-$conservazione  = "Conservazione: conservare in luogo fresco e asciutto, max 18°C. Degustare a temperatura ambiente.";
-$scadenza  = "Scadenza: 14 mesi";
-$dimensioni  = "Dimensioni: 9 x 15,5 x 1,2 cm";
-$pesonetto  = "Peso netto: 50g";
-$prezzo = "Prezzo 5,00 €";
+$prodotto = file_get_contents("file_esterno.json");
 
 ?>
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html>
   <head>
     <title>MV chocosite</title>
@@ -38,8 +31,8 @@ $prezzo = "Prezzo 5,00 €";
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><a href="/index.html">Home <span class="sr-only">(current)</span></a></li>
-              <li class="active"><a href="/prodotti.html">Prodotti</a></li>
+              <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+              <li><a href="/prodotti.html">Prodotti</a></li>
               <li><a href="/dove-siamo.html">La filosofia</a></li>
               <li><a href="/chi-siamo.html">Chi siamo</a></li>
             </ul>
@@ -51,37 +44,44 @@ $prezzo = "Prezzo 5,00 €";
       </nav>
     </header>
     <main>
-      <div class="row">
-        <div class="col-md-12">
-          <h1>MAISON DU CHOCOLAT - GUANA</h1>
+      <div class="container-fluid">
+        <div class="row banner-home">
+          <div class="col-md-3">
+            <img src="https://c2.staticflickr.com/6/5105/5626762538_406270541c_b.jpg">
+          </div>
+          <div class="col-md-9">
+            <h1>Il cioccolato più buono? Lo trovi da noi!</h1>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <img src="https://c1.staticflickr.com/3/2369/2458986998_c81485c2db_z.jpg?zz=1">
-        </div>
-        <div class="col-md-6">
-          <h2>GUANA - cioccolato fondente</h2>
-          <h3>Tavoletta di cioccolato fondente extra al 74%</h3>
-          <div>
-          <?php  $ingredienti ?>
-        <!--   <strong>Ingredienti</strong>: pasta di cacao, zucchero di canna, burro di cacao, vaniglia. Cacao min. 74%. Può contenere tracce di nocciole, mandorle, pistacchi, noci, latte. -->
+        <div class="row">
+
+foreach ($prodotto as )
+
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading"><a href="/product1.html">Maison du chocolat</a></div>
+              <div class="panel-body">
+                <img src="https://c1.staticflickr.com/3/2369/2458986998_c81485c2db_z.jpg?zz=1" />
+              </div>
+            </div>
           </div>
-          <div>
-          <strong>Conservazione</strong>: conservare in luogo fresco e asciutto, max 18°C. Degustare a temperatura ambiente.
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading"><a href="/product1.html">Mink</a></div>
+              <div class="panel-body">
+                <img src="https://c1.staticflickr.com/5/4027/4429686185_0e5ac89112_z.jpg?zz=1">
+              </div>
+            </div>
           </div>
-          <div>
-            <strong>Scadenza</strong>: 14 mesi
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading"><a href="/product1.html">Buonissimo</a></div>
+              <div class="panel-body">
+                <img src="https://c1.staticflickr.com/5/4027/4429686185_0e5ac89112_z.jpg?zz=1">
+              </div>
+            </div>
           </div>
-          <div>
-            <strong>Dimensioni</strong>: 9 x 15,5 x 1,2 cm
-          </div>
-          <div>
-            <strong>Peso netto</strong>: 50 g
-          </div>
-          <div>
-            <strong>Prezzo</strong>: 5,00 €
-          </div>
+
         </div>
       </div>
     </main>

@@ -28,6 +28,25 @@ function recuperaProdottoDaCodice($codice) {
 
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+// A - esercizio
+function recuperaListaCosto($prezzo5) {
+    $db = creaConnessionePDO();
+
+    // prepara la query da eseguire
+    $stmt = $db->prepare('SELECT * FROM prodotti WHERE prezzo<500 LIKE :prezzo');
+
+    // filtra i dati ricevuti e si assicura che non contengano caratteri indesiderati
+    $prezzo5 = filter_input(INPUT_GET, 'codice', FILTER_SANITIZE_STRING);
+
+    // sanitizza i dati per evitare SQL injections
+    $stmt->bindParam(':prezzo', $prezzo5, PDO::PARAM_STR);
+
+    // esegue la query
+    $stmt->execute();
+
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+// A- fine eseercizio
 
 function salvaOrdine($prodotti, $utente) {
 
@@ -73,9 +92,11 @@ function salvaOrdine($prodotti, $utente) {
 
         $stmt->execute();
 
+// A- recupera l'ID di cliente così lo posso usare
         $idOrdine = $db->lastInsertId();
 
         // inserimento in tabella ordini_dettagli
+        // A- e usa l'ID oridine immesso in automatico
         foreach($prodotti as $rigaProdotto) {
 
             $stmt = $db->prepare("INSERT INTO ordini_dettagli (ordine_id, codice_prodotto, prezzo, quantita, totale)
@@ -92,7 +113,7 @@ function salvaOrdine($prodotti, $utente) {
             $stmt->execute();
 
         }
-
+// A- finchè non fai il commit ache sul database in diretta non noti nulla
         $db->commit();
 
     } catch (Exception $e) {
